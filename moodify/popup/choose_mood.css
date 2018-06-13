@@ -16,42 +16,25 @@ html, body {
   cursor: pointer;
 }
 
-.mood:hover {
-  background-color: #CFF2F2;
-}
-
 .mood {
-  background-color: #E5F2F2;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 50px;
+  width: 50px;
+  border: none;
 }
 
 .happy {
-  background-image: url(images/happy.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  /* put the height and width of your image here */
-  height: 50px;
-  width: 200px;
-  border: none;
+  background-image: url(../icons/happy.png);
 }
 
 .sad {
-  background-image: url(images/sad.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  /* put the height and width of your image here */
-  height: 50px;
-  width: 200px;
-  border: none;
+  background-image: url(../icons/sad.png);
 }
 
-.unchanged {
-  background-image: url(icons/unchanged.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  /* put the height and width of your image here */
-  height: 50px;
-  width: 200px;
-  border: none;
+.stoic {
+  background-image: url(../icons/stoic.png);
 }
 
 .reset {
@@ -60,4 +43,11 @@ html, body {
 
 .reset:hover {
   background-color: #EAEA9D;
+}
+
+.moodify-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
 }

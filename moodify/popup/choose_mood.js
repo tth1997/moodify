@@ -1,43 +1,49 @@
 /**
- * CSS to hide everything on the page,
- * except for elements that have the "moodify-image" class.
- */
-const hidePage = `body > :not(.moodify-image) {
-                    display: none;
-                  }`;
-
-/**
  * Listen for clicks on the buttons, and send the appropriate message to
  * the content script in the page.
  */
 function listenForClicks() {
-  document.addEventListener("click", (e) => {
 
+  document.addEventListener("click", (e) => {
+    console.log(e.target);
     /**
      * Given the name of a beast, get the URL to the corresponding image.
      */
     function moodNameToURL(moodName) {
       switch (moodName) {
-        case "Happy":
-          return browser.extension.getURL("moods/happy.html");
-        case "Sad":
-          return browser.extension.getURL("moods/sad.html");
-        case "Unchanged":
-          return browser.extension.getURL("moods/unchanged.html");
+        case "happy":
+          return browser.extension.getURL("moods/happy.jpg");
+        case "sad":
+          return browser.extension.getURL("moods/sad.jpg");
+        case "stoic":
+          return browser.extension.getURL("moods/stoic.jpg");
+      }
+    }
+    function moodNameToQuote(moodName) {
+      switch (moodName) {
+        case "happy":
+          return "Smile your way to Success!"
+        case "sad":
+          return "Cheer up! Better days always come!"
+        case "stoic":
+          return "You seriously are stoic!"
       }
     }
 
     /**
      * Insert the page-hiding CSS into the active tab,
-     * then get the beast URL and
-     * send a "beastify" message to the content script in the active tab.
+     * then get the mood URL and
+     * send a "moodify" message to the content script in the active tab.
      */
     function moodify(tabs) {
-      browser.tabs.insertCSS({code: hidePage}).then(() => {
-        let url = moodNameToURL(e.target.textContent);
+      browser.tabs.insertCSS({file: "/content_scripts/moodify-style.css"}).then(() => {
+        console.log(e.target.getAttribute("mood"));
+        let url = moodNameToURL(e.target.getAttribute("mood"));
+        let quote = moodNameToQuote(e.target.getAttribute("mood"));
         browser.tabs.sendMessage(tabs[0].id, {
           command: "moodify",
-          moodURL: url
+          moodURL: url,
+          quote: quote
         });
       });
     }
@@ -47,7 +53,7 @@ function listenForClicks() {
      * send a "reset" message to the content script in the active tab.
      */
     function reset(tabs) {
-      browser.tabs.removeCSS({code: hidePage}).then(() => {
+      browser.tabs.removeCSS({file: "/content_scripts/moodify-style.css"}).then(() => {
         browser.tabs.sendMessage(tabs[0].id, {
           command: "reset",
         });
@@ -63,7 +69,7 @@ function listenForClicks() {
 
     /**
      * Get the active tab,
-     * then call "beastify()" or "reset()" as appropriate.
+     * then call "moodify()" or "reset()" as appropriate.
      */
     if (e.target.classList.contains("mood")) {
       browser.tabs.query({active: true, currentWindow: true})
