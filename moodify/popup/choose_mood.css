@@ -1,0 +1,63 @@
+html, body {
+  width: 100px;
+  font-family: sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  margin: 3% auto;
+  padding: 4px;
+
+  text-align: center;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.mood:hover {
+  background-color: #CFF2F2;
+}
+
+.mood {
+  background-color: #E5F2F2;
+}
+
+.happy {
+  background-image: url(images/happy.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 50px;
+  width: 200px;
+  border: none;
+}
+
+.sad {
+  background-image: url(images/sad.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 50px;
+  width: 200px;
+  border: none;
+}
+
+.unchanged {
+  background-image: url(icons/unchanged.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 50px;
+  width: 200px;
+  border: none;
+}
+
+.reset {
+  background-color: #FBFBC9;
+}
+
+.reset:hover {
+  background-color: #EAEA9D;
+}

@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"name": "Moodify",
+	"version": "1.0",
+
+"description": "Adds a browser popup action in toolbar. Click the button to choose an expression. The active tab's body content is replaced with an html file of the chosen mood and text.",
+
+  "icons": {
+    "60": "moodify-60.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "moodify-60.png",
+    "default_title": "Moodify",
+    "default_popup": "popup/choose_mood.html"
+  },
+
+  "web_accessible_resources": [
+    "moods/happy.jpg",
+    "moods/sad.jpg",
+    "moods/stoic.jpg",
+    "icons/happy.png",
+    "icons/sad.png",
+    "icons/unchanged.png"
+  ]
+
+}
