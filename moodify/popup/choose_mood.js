@@ -7,7 +7,7 @@ function listenForClicks() {
   document.addEventListener("click", (e) => {
     console.log(e.target);
     /**
-     * Given the name of a beast, get the URL to the corresponding image.
+     * Given the name of a mood, get the URL to the corresponding image.
      */
     function moodNameToURL(moodName) {
       switch (moodName) {

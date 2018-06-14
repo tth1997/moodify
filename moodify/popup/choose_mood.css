@@ -44,10 +44,3 @@ html, body {
 .reset:hover {
   background-color: #EAEA9D;
 }
-
-.moodify-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-}
