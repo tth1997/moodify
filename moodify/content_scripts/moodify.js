@@ -25,7 +25,9 @@
   }
 
   /**
-  * 
+  * Given a string message of a quote, remove all existing quote in mood pages,
+  * then create and assign the html value of the string and a css class,
+  * insert the h1 node into the document.
   */
   function insertQuote(string) {
     console.log(string);
@@ -70,12 +72,5 @@
       removeExistingQuotes();
     }
   });
-
-// function openMoodPage(page) {
-
-//   browser.tabs.create({
-//     "url": page
-//   });
-// }
 
 })();

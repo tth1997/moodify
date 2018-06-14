@@ -10,7 +10,6 @@ html, body {
 .button {
   margin: 3% auto;
   padding: 4px;
-
   text-align: center;
   font-size: 1.5em;
   cursor: pointer;
@@ -43,11 +42,4 @@ html, body {
 
 .reset:hover {
   background-color: #EAEA9D;
-}
-
-.moodify-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
 }
